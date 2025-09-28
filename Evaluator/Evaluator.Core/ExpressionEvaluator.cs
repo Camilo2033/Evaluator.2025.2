@@ -11,7 +11,7 @@ namespace Evaluator.Core
             return Calulate(postfix);
         }
 
-        // Convierte la cadena en tokens (números y operadores)
+        
         private static List<string> Tokenize(string expression)
         {
             var tokens = new List<string>();
@@ -21,7 +21,7 @@ namespace Evaluator.Core
             {
                 if (char.IsDigit(c) || c == '.')
                 {
-                    number += c; // acumulamos dígitos o punto decimal
+                    number += c; 
                 }
                 else if (IsOperator(c))
                 {
@@ -44,7 +44,7 @@ namespace Evaluator.Core
             return tokens;
         }
 
-        // Convierte de infijo a postfijo usando tokens
+        
         private static List<string> InfixToPostfix(List<string> infixTokens)
         {
             var stack = new Stack<string>();
@@ -62,7 +62,7 @@ namespace Evaluator.Core
                     {
                         while (stack.Peek() != "(")
                             postfix.Add(stack.Pop());
-                        stack.Pop(); // eliminar '('
+                        stack.Pop(); // 
                     }
                     else
                     {
@@ -112,7 +112,7 @@ namespace Evaluator.Core
             _ => throw new Exception("Operador inválido."),
         };
 
-        // Evalúa la expresión en postfijo
+        
         private static double Calulate(List<string> postfixTokens)
         {
             var stack = new Stack<double>();
